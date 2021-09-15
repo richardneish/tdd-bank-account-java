@@ -7,7 +7,10 @@ public class Account {
         balance = balance.add(i);
     }
 
-    public void withdraw(Money i) {
+    public void withdraw(Money i) throws InsufficientBalanceException {
+        if (balance.lessThan(i)) {
+            throw new InsufficientBalanceException();
+        }
         balance = balance.subtract(i);
     }
 }

@@ -33,4 +33,8 @@ public class Money {
     public int hashCode() {
         return Objects.hash(value);
     }
+
+    public boolean lessThan(Money i) {
+        return value < i.value;
+    }
 }
