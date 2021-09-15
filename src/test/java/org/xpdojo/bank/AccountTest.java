@@ -11,30 +11,30 @@ public class AccountTest {
     @Test
     public void startingBalanceIsZero() {
         Account account = new Account();
-        assertThat(account.balance).isEqualTo(0);
+        assertThat(account.balance).isEqualTo(new Money(0));
     }
 
     @Test
     public void depositAnAmountToIncreaseTheBalanceByTheSameAmount() {
         Account account = new Account();
-        account.deposit(100);
-        assertThat(account.balance).isEqualTo(100);
+        account.deposit(new Money(100));
+        assertThat(account.balance).isEqualTo(new Money(100));
     }
 
     @Test
     public void depositMultipleAmounts() {
         Account account = new Account();
-        account.deposit(100);
-        account.deposit(300);
-        assertThat(account.balance).isEqualTo(400);
+        account.deposit(new Money(100));
+        account.deposit(new Money(300));
+        assertThat(account.balance).isEqualTo(new Money(400));
     }
 
     @Test
     public void withdrawChangesBalance() {
         Account account = new Account();
-        account.deposit(400);
-        assertThat(account.balance).isEqualTo(400);
-        account.withdraw(200);
-        assertThat(account.balance).isEqualTo(200);
+        account.deposit(new Money(400));
+        assertThat(account.balance).isEqualTo(new Money(400));
+        account.withdraw(new Money(200));
+        assertThat(account.balance).isEqualTo(new Money(200));
     }
 }
